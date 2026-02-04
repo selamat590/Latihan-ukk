@@ -8,13 +8,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-<div class="bg-gray-900">
+
+<div
+  class="relative min-h-screen bg-cover bg-center bg-no-repeat"
+  style="background-image: url('kai-bg.jpg');"
+>
+
   <header class="absolute inset-x-0 top-0 z-50">
-    <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+    <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8 bg-white ">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+          <img src="Kai.png" alt="" class="h-8 w-auto" />
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -26,14 +31,14 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm/6 font-semibold text-white">Dashboard</a>
-        <a href="#" class="text-sm/6 font-semibold text-white">Product</a>
-        <a href="#" class="text-sm/6 font-semibold text-white">Features</a>
-        <a href="#" class="text-sm/6 font-semibold text-white">Marketplace</a>
-        <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
+        <a href="#" class="text-lg/6 font-semibold text-blackz hover:text-orange-400 underline">Dashboard</a>
+        <a href="#" class="text-lg/6 font-semibold text-black hover:text-orange-400 underline">Product</a>
+        <a href="#" class="text-lg/6 font-semibold text-black hover:text-orange-400 underline">Features</a>
+        <a href="#" class="text-lg/6 font-semibold text-black hover:text-orange-400 underline">Marketplace</a>
+        <a href="#" class="text-lg/6 font-semibold text-black hover:text-orange-400 underline">Company</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="login.php" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+        <a href="login.php" class="text-lg/6 font-semibold text-black hover:text-orange-400">Log in <span aria-hidden="true">&rarr;</span></a>
       </div>
     </nav>
     <el-dialog>
@@ -43,7 +48,7 @@
             <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+                <img src="kai.png" alt="" class="w-auto" />
               </a>
               <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
                 <span class="sr-only">Close menu</span>
@@ -55,10 +60,10 @@
             <div class="mt-6 flow-root">
               <div class="-my-6 divide-y divide-white/10">
                 <div class="space-y-2 py-6">
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Product</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Features</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Marketplace</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Company</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5 active:text-orange-400">Product</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5">Features</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5">Marketplace</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5">Company</a>
                 </div>
                 <div class="py-6">
                   <a href="login.php" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
@@ -81,13 +86,19 @@
           Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-400"><span aria-hidden="true" class="absolute inset-0"></span>Read more <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
-      <div class="text-center">
-        <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">Data to enrich your online business</h1>
-        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Get started</a>
+      <div class="lg:flex lg:gap-x-7" class="text-align: center;">
+        
+        <h1 class="text-5xl font-semibold tracking-tight text-balance sm:text-7xl " style="color: #2d2a70; text-shadow: 0 6px 10px rgba(0, 0, 0, 0.83);">Kereta</h1>
+        <h1 class="text-5xl font-semibold tracking-tight text-balance sm:text-7xl " style=" color: #ed6b23; text-shadow: 0 6px 10px rgba(0, 0, 0, 0.83);">Api</h1>
+        <h1 class="text-5xl font-semibold tracking-tight text-balance sm:text-7xl " style=" color: #2d2a70; text-shadow: 0 6px 10px rgba(0, 0, 0, 0.83);">Indonesia</h1>
+      </div>
+      <div>
+        <p class="mt-5 text-md font-medium text-pretty text-white md:text-xl/10 " style="text-align: center; text-shadow: 0 6px 10px rgba(0, 0, 0, 0.83);">Anda Adalah Prioritas Kami</p>
+
+      </div>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a href="#" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Jadwal Kereta</a>
           <a href="#" class="text-sm/6 font-semibold text-white">Learn more <span aria-hidden="true">→</span></a>
-        </div>
       </div>
     </div>
     <div aria-hidden="true" class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
@@ -95,6 +106,16 @@
     </div>
   </div>
 </div>
+<footer class="background-white">
+<div>
+        <div class="flex lg:flex-1">
+        <a href="#" class="-m-0 p-10">
+          <span class="sr-only">Your Company</span>
+          <img src="Kai.png" alt="" class="h-8 w-auto" />
+        </a>
+      </div>
+</div>
+</footer>
 
 </body>
 </html>
