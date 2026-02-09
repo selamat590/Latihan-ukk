@@ -1,0 +1,128 @@
+-- =========================
+-- DATABASE
+-- =========================
+CREATE DATABASE pt_kai;
+USE pt_kai;
+
+-- =========================
+-- USERS
+-- =========================
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    role ENUM('petugas','pelanggan') NOT NULL
+);
+
+-- =========================
+-- PELANGGAN
+-- =========================
+CREATE TABLE pelanggan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nik VARCHAR(100) NOT NULL UNIQUE,
+    nama_penumpang VARCHAR(100) NOT NULL,
+    alamat TEXT,
+    telp VARCHAR(20),
+    id_user INT,
+    CONSTRAINT fk_pelanggan_user
+        FOREIGN KEY (id_user) REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- PETUGAS
+-- =========================
+CREATE TABLE petugas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_petugas VARCHAR(100) NOT NULL,
+    alamat TEXT,
+    telp VARCHAR(20),
+    id_user INT,
+    CONSTRAINT fk_petugas_user
+        FOREIGN KEY (id_user) REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- KERETA
+-- =========================
+CREATE TABLE kereta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_kereta VARCHAR(100) NOT NULL,
+    deskripsi TEXT,
+    kelas VARCHAR(50)
+);
+
+-- =========================
+-- GERBONG
+-- =========================
+CREATE TABLE gerbong (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_gerbong VARCHAR(50),
+    kuota INT,
+    id_kereta INT,
+    CONSTRAINT fk_gerbong_kereta
+        FOREIGN KEY (id_kereta) REFERENCES kereta(id)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- KURSI
+-- =========================
+CREATE TABLE kursi (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    no_kursi VARCHAR(10),
+    id_gerbong INT,
+    CONSTRAINT fk_kursi_gerbong
+        FOREIGN KEY (id_gerbong) REFERENCES gerbong(id)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- JADWAL
+-- =========================
+CREATE TABLE jadwal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    asal_keberangkatan VARCHAR(100),
+    tujuan_keberangkatan VARCHAR(100),
+    tanggal_berangkat DATETIME,
+    tanggal_kedatangan DATETIME,
+    harga DOUBLE,
+    id_kereta INT,
+    CONSTRAINT fk_jadwal_kereta
+        FOREIGN KEY (id_kereta) REFERENCES kereta(id)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- PEMBELIAN TIKET
+-- =========================
+CREATE TABLE pembelian_tiket (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tanggal_pembelian DATETIME,
+    id_pelanggan INT,
+    id_jadwal INT,
+    CONSTRAINT fk_pembelian_pelanggan
+        FOREIGN KEY (id_pelanggan) REFERENCES pelanggan(id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_pembelian_jadwal
+        FOREIGN KEY (id_jadwal) REFERENCES jadwal(id)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- DETAIL PEMBELIAN
+-- =========================
+CREATE TABLE detail_pembelian (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nik VARCHAR(100),
+    nama_penumpang VARCHAR(100),
+    id_pembelian_tiket INT,
+    id_kursi INT,
+    CONSTRAINT fk_detail_pembelian
+        FOREIGN KEY (id_pembelian_tiket) REFERENCES pembelian_tiket(id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_detail_kursi
+        FOREIGN KEY (id_kursi) REFERENCES kursi(id)
+        ON DELETE CASCADE
+);
